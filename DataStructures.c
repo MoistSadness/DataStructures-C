@@ -1,7 +1,7 @@
 /*
    Since C does not have a build in Data Structure Libraries, I created my own
 
-   Linked list source code graciously stolen and modified from the following:
+   Linked list source code graciously "borrowed"" and modified from the following:
       https://www.tutorialspoint.com/data_structures_algorithms/linked_list_program_in_c.htm
 
 */
@@ -14,7 +14,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-# include "Datastructures.h"
+# include "DataStructures.h"
 
 struct node {
    int data;

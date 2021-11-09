@@ -9,11 +9,10 @@
 
 # include "DataStructures.h"
 
-int main(){
-    printf("Hi");
+void linkedListTester(){
+   printf("\nDriver code to test my linked list library\n\n");
 
-
-
+   /*
    insertFirst(1,10);
    insertFirst(2,20);
    insertFirst(3,30);
@@ -78,8 +77,13 @@ int main(){
    reverse(&head);
    printf("\nList after reversing the data: ");
    printList();
+
+   */
 }
 
+
+int main(){
+   linkedListTester();
 
 
 
