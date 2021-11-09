@@ -1,16 +1,43 @@
-////////////////////////////////////////////
-//                                        //
-//    Driver code for Data structures     //
-//                                        //
-////////////////////////////////////////////
+/****************************************************************
+ * 
+ *          Driver Code for linked list
+ * 
+ ***************************************************************/
 
 
 # include "stdio.h"
+# include "stdbool.h"
 
 # include "DataStructures.h"
 
 void linkedListTester(){
    printf("\nDriver code to test my linked list library\n\n");
+
+   struct node* head;                     // Creating the head node
+
+   // Should be empty
+   if (isEmpty(head) == true) 
+      printf("Linked list is empty\n");
+   else printf("Linked list has Content\n");
+
+   // Adding stuff to the list
+   append(head, 69);
+   append(head, 70);
+   append(head, 71);
+   append(head, 72);
+   append(head, 73);
+   append(head, 74);
+   append(head, 75);
+
+   // Should have content
+   if (isEmpty(head) == true) 
+      printf("Linked list is empty\n");
+   else printf("Linked list has Content\n");
+
+   //Printing the Linked List
+   printList(head);
+
+
 
    /*
    insertFirst(1,10);

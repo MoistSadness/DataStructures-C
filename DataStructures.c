@@ -1,13 +1,13 @@
-/*
-   Since C does not have a build in Data Structure Libraries, I created my own
+/***********************************************************************************************
+   
+   Since C does not have a built in Data Structure Libraries, I created my own
 
-   Linked list source code graciously "borrowed"" and modified from the following:
+   Linked list source code graciously "borrowed" and modified from the following:
       https://www.tutorialspoint.com/data_structures_algorithms/linked_list_program_in_c.htm
 
-*/
+   Currently used as a singly linked list, will make it doubly linked later
 
-
-
+***********************************************************************************************/
 
 # include <stdio.h>
 # include <string.h>
@@ -16,17 +16,22 @@
 
 # include "DataStructures.h"
 
+/****************************************************************
+ * Node struture for all data structures
+ * Stores an integer as well as it's position in the linked list
+ ***************************************************************/
 struct node {
    int data;
    int key;
-   struct node *next;
+   struct node* next;
+   struct node* previous;
 };
 
-struct node *head = NULL;
-struct node *current = NULL;
 
-//display the list
-void printList() {
+/****************************************************************
+ * Prints the contents of the linked list
+ ***************************************************************/
+void printList(struct node* head) {
    struct node *ptr = head;
    printf("\n[ ");
 	
@@ -39,23 +44,47 @@ void printList() {
    printf(" ]");
 }
 
-//insert link at the first location
-void insertFirst(int key, int data) {
-   //create a link
+
+/****************************************************************
+ * Adds a new node at the end of the linked list
+ ***************************************************************/
+void append(struct node* head, int data) {
+   int keyCounter = 0;
+	
+   // Go to the end of the list
+   struct node* tempHead = head;
+   while(tempHead -> next != NULL){
+      tempHead = tempHead -> next;
+      keyCounter++;
+   }
+
+   //create a new node
    struct node *link = (struct node*) malloc(sizeof(struct node));
 	
-   link->key = key;
-   link->data = data;
-	
-   //point it to old first node
-   link->next = head;
-	
-   //point first to new first node
-   head = link;
+   link -> key = keyCounter;
+   link -> data = data;
+
+   // Set new node as the new final node
+   tempHead -> next = link;
 }
 
+
+/*
+// Inserts at the given key
+// Not ready yet
+
+void insert(struct node* head, int key, int data){
+   //create a new node
+   struct node *link = (struct node*) malloc(sizeof(struct node));
+
+   link->key = key;
+   link->data = data;
+}
+*/
+
+/*
 //delete first item
-struct node* deleteFirst() {
+struct node* deleteFirst(struct node* head) {
 
    //save reference to first link
    struct node *tempLink = head;
@@ -66,25 +95,36 @@ struct node* deleteFirst() {
    //return the deleted link
    return tempLink;
 }
+*/
 
-//is list empty
-bool isEmpty() {
+
+/****************************************************************
+ * Checks if the linked list is empty
+ ***************************************************************/
+bool isEmpty(struct node* head) {
    return head == NULL;
 }
 
-int length() {
+
+/****************************************************************
+ * Returns the number of elements in the linked list
+ ***************************************************************/
+int length(struct node* head) {
    int length = 0;
-   struct node *current;
+   struct node *current = head;
 	
-   for(current = head; current != NULL; current = current->next) {
-      length++;
-   }
+   while (current -> next != NULL) length++;
 	
    return length;
 }
 
-//find a link with given key
-struct node* find(int key) {
+
+/****************************************************************
+ * Searches linked list to a specific key
+ * Returns the node which has the desired data value
+ *    otherwise return null
+ ***************************************************************/
+struct node* find(struct node* head, int key) {
 
    //start from the first link
    struct node* current = head;
@@ -96,7 +136,6 @@ struct node* find(int key) {
 
    //navigate through list
    while(current->key != key) {
-	
       //if it is last node
       if(current->next == NULL) {
          return NULL;
@@ -110,8 +149,9 @@ struct node* find(int key) {
    return current;
 }
 
+/*
 //delete a link with given key
-struct node* delete(int key) {
+struct node* delete(struct node* head, int key) {
 
    //start from the first link
    struct node* current = head;
@@ -147,8 +187,13 @@ struct node* delete(int key) {
 	
    return current;
 }
+*/
 
-void sort() {
+/*
+
+      NOT READY YET
+
+void sort(struct node* head) {
 
    int i, j, k, tempKey, tempData;
    struct node *current;
@@ -193,3 +238,4 @@ void reverse(struct node** head_ref) {
 	
    *head_ref = prev;
 }
+*/
