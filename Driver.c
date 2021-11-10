@@ -13,13 +13,25 @@
 void linkedListTester(){
    printf("\nDriver code to test my linked list library\n\n");
 
-   struct node* head;                     // Creating the head node
+   node* head = NULL;                     // Creating the head node
 
    // Should be empty
    if (isEmpty(head) == true) 
       printf("Linked list is empty\n");
    else printf("Linked list has Content\n");
 
+   head = init(69);
+   //init(head, 69);
+   printf("%d %d\n", head -> key, head -> data);
+
+   // Should have content
+   if (isEmpty(head) == true) 
+      printf("Linked list is empty\n");
+   else printf("Linked list has Content\n");
+
+   
+
+/*
    // Adding stuff to the list
    append(head, 69);
    append(head, 70);
@@ -29,14 +41,9 @@ void linkedListTester(){
    append(head, 74);
    append(head, 75);
 
-   // Should have content
-   if (isEmpty(head) == true) 
-      printf("Linked list is empty\n");
-   else printf("Linked list has Content\n");
-
    //Printing the Linked List
    printList(head);
-
+*/
 
 
    /*

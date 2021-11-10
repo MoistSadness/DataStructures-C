@@ -7,18 +7,25 @@
 # ifndef DATASTRUCTURES_H
 # define DATASTRUCTURES_H
 
-void printList(struct node* head);
-void append(struct node* head, int data);
+/****************************************************************
+ * Node struture for all data structures
+ * Stores an integer as well as it's position in the linked list
+ ***************************************************************/
+typedef struct node {
+    int data;
+    int key;
+    struct node* next;
+    struct node* previous;
+} node;
 
-bool isEmpty(struct node* head);
+/****************************************************************
+ * Function Prototypes
+ ***************************************************************/
+node* init(int data);
+void append(node* head, int data);
 
-/*
-void printList(struct node*);
-void cc(struct node*, int);
+void printList(node* head);
+bool isEmpty(node* head);
 
-bool isEmpty(struct node*);
-int length(struct node*);
-struct node* find(struct node*, int);
-*/
 
 # endif
