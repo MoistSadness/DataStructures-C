@@ -14,8 +14,6 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-# include "DataStructures.h"
-
 /****************************************************************
  * Node struture for all data structures
  * Stores an integer as well as it's position in the linked list

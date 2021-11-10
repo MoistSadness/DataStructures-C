@@ -7,6 +7,11 @@
 # ifndef DATASTRUCTURES_H
 # define DATASTRUCTURES_H
 
+void printList(struct node* head);
+void append(struct node* head, int data);
+
+bool isEmpty(struct node* head);
+
 /*
 void printList(struct node*);
 void cc(struct node*, int);
